@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/EquipmentMonitor/equipment.db
+/EquipmentMonitor/equipment.db-shm
+/EquipmentMonitor/equipment.db-wal
