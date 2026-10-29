@@ -48,11 +48,24 @@ namespace EquipmentMonitor.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Equipment equipment)
         {
+            // Перевірка чи існує вже такий інвентарний номер (крайній випадок дубліката)
+            if (_context.Equipments.Any(e => e.InventoryNumber == equipment.InventoryNumber))
+            {
+                ModelState.AddModelError("InventoryNumber", "Обладнання з таким інвентарним номером вже існує!");
+            }
+
             if (ModelState.IsValid)
             {
-                _context.Add(equipment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(equipment);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Сталася помилка при збереженні в базу даних.");
+                }
             }
             return View(equipment);
         }
