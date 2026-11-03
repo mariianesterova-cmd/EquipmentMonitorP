@@ -51,7 +51,7 @@ namespace EquipmentMonitor.Controllers
             // Перевірка чи існує вже такий інвентарний номер (крайній випадок дубліката)
             if (_context.Equipments.Any(e => e.InventoryNumber == equipment.InventoryNumber))
             {
-                ModelState.AddModelError("InventoryNumber", "Обладнання з таким інвентарним номером вже існує!");
+                ModelState.AddModelError("InventoryNumber", "Обладнання ц таким інвентарним номером вже існує!");
             }
 
             if (ModelState.IsValid)
