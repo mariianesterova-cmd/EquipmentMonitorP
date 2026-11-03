@@ -1,8 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Головна";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center my-4">
+    <h1 class="display-4 fw-bold">Система моніторингу обладнання</h1>
+    <p class="lead text-muted">Оперативний контроль стану та статусу технічних засобів у реальному часі.</p>
+</div>
+
+<div class="row mt-5 g-4">
+    <div class="col-md-4">
+        <div class="card h-100 border-primary shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title text-primary">Реєстр обладнання</h5>
+                <p class="card-text">Перегляд повного переліку обладнання, фільтрація за статусом та пошук за назвою.</p>
+                <a asp-controller="Equipment" asp-action="Index" class="btn btn-primary">Перейти до списку</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-success shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title text-success">Додати пристрій</h5>
+                <p class="card-text">Внесення нового обладнання до бази даних із зазначенням типу та характеристик.</p>
+                <a asp-controller="Equipment" asp-action="Create" class="btn btn-outline-success">Додати новий</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-info shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title text-info">Статус системи</h5>
+                <p class="card-text">База даних SQLite підключена, сервіси моніторингу працюють у штатному режимі.</p>
+                <span class="badge bg-success">Система активна</span>
+            </div>
+        </div>
+    </div>
 </div>

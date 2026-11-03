@@ -1,6 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Політика конфіденційності";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container my-4">
+    <h1 class="mb-3">@ViewData["Title"]</h1>
+    <p class="text-muted">Останнє оновлення: листопад 2026 року</p>
+
+    <hr class="my-4" />
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title text-secondary">Обробка системних даних</h5>
+            <p class="card-text">
+                Цей застосунок є навчальним MVP-проєктом для моніторингу обладнання в локальній мережі.
+                Усі дані про технічні засоби, статуси та журнали подій зберігаються локально в базі даних SQLite (`equipment.db`).
+            </p>
+        </div>
+    </div>
+
+    <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item">
+            <strong>Збір інформації:</strong> Система збирає тільки дані про технічний стан обладнання, вказані користувачем.
+        </li>
+        <li class="list-group-item">
+            <strong>Локальне збереження:</strong> Персональні дані користувачів та зовнішні файли cookie не передаються третім сторонам.
+        </li>
+        <li class="list-group-item">
+            <strong>Безпека:</strong> Доступ до системи здійснюється в межах внутрішньої мережі навчального закладу/лабораторії.
+        </li>
+    </ul>
+</div>
