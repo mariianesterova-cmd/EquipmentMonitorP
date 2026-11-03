@@ -15,8 +15,9 @@ var app = builder.Build();
 // Автоматичне створення бази даних при запуску
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.EnsureCreated();
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<AppDbContext>(); // Замініть YourDbContextName на реальну назву вашого контексту бази даних (наприклад, ApplicationDbContext)
+    context.Database.EnsureCreated(); // або context.Database.Migrate();
 }
 
 if (!app.Environment.IsDevelopment())
