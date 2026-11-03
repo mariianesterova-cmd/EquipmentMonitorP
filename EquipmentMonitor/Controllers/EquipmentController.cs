@@ -38,18 +38,19 @@ namespace EquipmentMonitor.Controllers
             return View(await query.ToListAsync());
         }
 
-        // Форма створення
+        // GET: Equipment/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: Equipment/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Equipment equipment)
         {
-            // Перевірка чи існує вже такий інвентарний номер (крайній випадок дубліката)
-            if (_context.Equipments.Any(e => e.InventoryNumber == equipment.InventoryNumber))
+            // Виправлено: Асинхронна перевірка дубліката інвентарного номера
+            if (await _context.Equipments.AnyAsync(e => e.InventoryNumber == equipment.InventoryNumber))
             {
                 ModelState.AddModelError("InventoryNumber", "Обладнання ц таким інвентарним номером вже існує!");
             }
@@ -106,7 +107,7 @@ namespace EquipmentMonitor.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_context.Equipments.Any(e => e.Id == equipment.Id))
+                    if (!await _context.Equipments.AnyAsync(e => e.Id == equipment.Id))
                     {
                         return NotFound();
                     }
