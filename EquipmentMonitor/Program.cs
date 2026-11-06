@@ -16,8 +16,8 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<AppDbContext>(); // Замініть YourDbContextName на реальну назву вашого контексту бази даних (наприклад, ApplicationDbContext)
-    context.Database.EnsureCreated(); // або context.Database.Migrate();
+    var context = services.GetRequiredService<AppDbContext>(); 
+    context.Database.EnsureCreated(); 
 }
 
 if (!app.Environment.IsDevelopment())
