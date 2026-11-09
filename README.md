@@ -47,3 +47,32 @@
 1. Клонуйте репозиторій:
    ```bash
    git clone [https://github.com/mariianesterova-cmd/EquipmentMonitorP.git](https://github.com/mariianesterova-cmd/EquipmentMonitorP.git)
+ 2. Запуск Серверної частини (Backend - ASP.NET Core API)
+
+Перейдіть у папку проєкту серверної частини:
+
+cd EquipmentMonitor
+3. Виконайте запуск сервера:
+
+dotnet run
+
+4. Перевірка запуску: Сервер розпочне роботу за адресою:
+
+HTTPS: https://localhost:7001
+
+HTTP: http://localhost:5000
+
+Тестування API через Swagger UI: Перейдіть у браузері за адресою: https://localhost:7001/swagger
+
+5. Запуск Автоматизованих Тестів (Unit Tests)
+Щоб перевірити коректність виконання модульних тестів локально, виконайте в терміналі бекенду:
+dotnet test --logger "console;verbosity=detailed"
+
+6.  Інтеграція та Автоматизація CI/CD 
+	Проєкт підключений до GitHub Actions. Конфігураційний файл .github/workflows/dotnet-ci.yml автоматично запускається при кожному push або pull_request у гілку main:
+
+Відновлює залежності (dotnet restore).
+
+Збирає проєкт (dotnet build).
+
+Виконує модульні тести (dotnet test).
