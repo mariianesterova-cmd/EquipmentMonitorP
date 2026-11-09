@@ -71,8 +71,8 @@ dotnet test --logger "console;verbosity=detailed"
 6.  Інтеграція та Автоматизація CI/CD 
 	Проєкт підключений до GitHub Actions. Конфігураційний файл .github/workflows/dotnet-ci.yml автоматично запускається при кожному push або pull_request у гілку main:
 
-Відновлює залежності (dotnet restore).
+Відновлює залежності - (dotnet restore).
 
-Збирає проєкт (dotnet build).
+Збирає проєкт - (dotnet build).
 
-Виконує модульні тести (dotnet test).
+Виконує модульні тести - (dotnet test).
